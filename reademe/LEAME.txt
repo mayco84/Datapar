@@ -1,0 +1,120 @@
+Claro! Aqui está a tradução para o espanhol do texto revisado, em formato de texto puro:
+
+Sistema de Gestión de Clientes
+
+Objetivo
+Este sistema permite la gestión completa del registro de clientes, incluyendo funcionalidades como búsqueda por nombre, CPF y correo electrónico. También ofrece integración con un servicio de búsqueda de códigos postales (CEP) para rellenar automáticamente los campos de dirección, además de soportar múltiples bases de datos para mayor flexibilidad en el almacenamiento de la información.
+
+El sistema fue desarrollado en Delphi 12 (Community Edition), siguiendo los principios de la arquitectura MVC (Model-View-Controller) y utilizando Orientación a Objetos. Será compilado en 64 bits.
+
+Requisitos del Sistema
+Conexión a Internet: Necesaria para acceder al servicio de búsqueda de códigos postales (ViaCEP).
+Conexión a Base de Datos: Obligatoria para todas las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en el sistema.
+
+Estructura de la Base de Datos
+Nombre de la Base de Datos: Datapar
+Sistema de Base de Datos: PostgreSQL 16 o superior
+
+Pantallas del Sistema
+
+Registro de Cliente
+Gestiona la información de los clientes.
+
+Campos Obligatorios:
+TipoPersona
+NombreCompleto
+FechaNacimiento
+CPF
+RG
+Email
+
+Campos Opcionales:
+Telefono
+Direccion
+Barrio
+Ciudad
+CodigoPostal
+Numero
+Complemento
+UF
+
+Pantalla de Pedido
+Almacena los pedidos realizados por los clientes.
+
+Tabla: pedido
+id
+FechaPedido
+IdCliente (clave foránea, referenciando la tabla Cliente)
+Total
+
+PedidoArticulos
+Detalla los artículos de cada pedido.
+
+Tabla: pedidoarticulos
+id
+idPedido (clave foránea, referenciando la tabla Pedido)
+Cantidad
+idUnidadMedida (clave foránea, referenciando la tabla UnidadMedida)
+Valor
+Total
+idProducto (clave foránea, referenciando la tabla Productos)
+
+Productos
+Registra los productos disponibles.
+
+Tabla: productos
+id
+idUnidadMedida (clave foránea, referenciando la tabla UnidadMedida)
+FechaRegistro
+DescripcionProducto
+Valor
+
+UnidadMedida
+Define unidades de medida para productos y pedidos.
+
+Tabla: unidadmedida
+id
+DescripcionUnidadMedida
+SiglaUnidadMedida
+FechaRegistro
+
+Funcionalidades del Sistema
+
+Pantalla de Búsqueda de Clientes
+Filtros de Búsqueda: Permite buscar por código, nombre y correo electrónico.
+Consulta Detallada: Muestra información completa del cliente al hacer doble clic en un registro.
+Navegación Intuitiva: Resultados mostrados en una cuadrícula organizada.
+
+Pantalla de Registro de Clientes
+Registro Completo: Permite la inclusión, modificación, eliminación y visualización de clientes.
+Validación Automática: Los campos obligatorios se resaltan en rojo.
+Búsqueda por Código Postal: Relleno automático de los campos de dirección.
+
+Pantalla de Búsqueda de Pedidos
+Filtros de Búsqueda: Permite buscar por código y descripción.
+Consulta Detallada: Muestra información completa del pedido del cliente al hacer doble clic en un registro.
+Navegación Intuitiva: Resultados mostrados en una cuadrícula organizada.
+
+Pantalla de Pedidos
+Inserción de Pedidos: Creación de pedidos vinculados a un cliente.
+Gestión de Artículos: Permite añadir, editar o eliminar artículos del pedido, especificando producto, cantidad, unidad de medida y valores.
+Cálculo Automático: El total del pedido se actualiza automáticamente en función de los artículos.
+Edición y Eliminación: Permite modificar o eliminar pedidos existentes.
+
+Pantalla de Búsqueda de Productos
+Filtros de Búsqueda: Permite buscar por código y descripción.
+Consulta Detallada: Muestra información completa del producto al hacer doble clic en un registro.
+Navegación Intuitiva: Resultados mostrados en una cuadrícula organizada.
+
+Pantalla de Productos
+Registro de Productos: Permite añadir nuevos productos con descripción, unidad de medida y valor.
+Edición y Eliminación: Permite actualizar o eliminar productos registrados.
+
+Pantalla de Búsqueda de Unidades de Medida
+Filtros de Búsqueda: Permite buscar por código, descripción y sigla.
+Consulta Detallada: Muestra información completa de la unidad de medida al hacer doble clic en un registro.
+Navegación Intuitiva: Resultados mostrados en una cuadrícula organizada.
+
+Pantalla de Unidades de Medida
+Registro de Unidades: Permite la inserción de nuevas unidades con descripción y sigla.
+Gestión: Visualización, edición o eliminación de unidades registradas.
